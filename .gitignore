@@ -31,16 +31,23 @@ node_modules
 
 # misc
 /.sass-cache
+.sass-cache
 /connect.lock
+connect.lock
 /coverage
+coverage
 /libpeerconnection.log
+libpeerconnection.log
 npm-debug.log
 testem.log
 /typings
+typings
 
 # e2e
 /e2e/*.js
+e2e/*.js
 /e2e/*.map
+e2e/*.map
 
 # System Files
 .DS_Store
