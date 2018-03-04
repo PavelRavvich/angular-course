@@ -1,0 +1,26 @@
+<input type="text" class="form-control" [(ngModel)]="itemName">
+<button class="btn btn-primary" (click)="addItem()">Add Item</button>
+<p *ngIf="!addItemStatus; else succsessStatus">Item does not added</p>
+<ng-template #succsessStatus>
+  <p>Item added</p>
+</ng-template>
+<app-item *ngFor="let item of items"></app-item>
+<hr>
+<ul>
+  <li *ngFor="let item of items_2; let i = index">
+    <div
+      [ngStyle]="{backgroundColor: (i + 1) % 2 === 0 ? 'azure' : 'transparent', 'color': 'green'}"
+      [ngClass]="{'big-text': setBigItemText(i)}"
+    >
+      <b>Index: {{i + 1}}</b>
+      <b>Id: {{item.id}}</b>
+      <b>Name: {{item.name}}</b>
+    </div>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let date of dates; let i = index">
+    <b>{{i + 1}} - {{date | date: 'short'}}</b>
+  </li>
+</ul>

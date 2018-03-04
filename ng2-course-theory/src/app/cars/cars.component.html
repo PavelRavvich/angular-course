@@ -1,0 +1,39 @@
+<h2>Односторонее связываение</h2>
+<h4>Забираем данные из компонента(ts) в шаблон(HTML)</h4>
+<button [disabled]="!canAddCars" class="btn btn-primary">Кнопка отслеживает переменную canAddCars в car.component.ts</button>
+<hr>
+
+<h4>Забираем данные из шаблона(HTML) в компонент(ts)</h4>
+<button class="btn btn-primary" (click)="addCar()">Меняет переменную addCarStatus в car.component.ts</button>
+<p>{{ addCarStatus }}</p>
+<hr>
+
+<app-car></app-car>
+<app-car></app-car>
+
+<h2>Связывание с тегом 'input'</h2>
+<hr>
+<h4>Срабатывает только при нажатии Enter</h4>
+<p>Вариант реализации связываения input с переменной компонента (inputText)</p>
+<input type="text" class="form-control" (keyup.enter)="changeInputText($event)">
+
+<hr>
+<h4>Срабатывает при любом изменении значение в 'input'</h4>
+<p>Вариант реализации связываения input с переменной компонента (inputText)</p>
+
+<input type="text" class="form-control" (keyup)="changeInputText($event)">
+
+<p>Связываение с input при помощи именования (#myInput)</p>
+<input type="text"class="form-control" #myInput (input)="changeInputText2(myInput.value)">
+
+<hr>
+<h2>{{ inputText }}</h2>
+
+
+<hr>
+<h2>Двухсторонее связывание</h2>
+<h4>Требует добавления FormsModule в app.components.ts/@NgModule/imports</h4>
+<input type="text" class="form-control" [(ngModel)]="twoWayBinding">
+
+<hr>
+<h2>{{ twoWayBinding }}</h2>
