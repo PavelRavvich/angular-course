@@ -6,5 +6,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent {
-  @Input('carItem') car: {name: string, year: number};
+  @Input() carItem: {name: string, year: number};
 }

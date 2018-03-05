@@ -1,7 +1,9 @@
-<input type="text" class="form-control" [(ngModel)]="carName">
-<input type="text" class="form-control" [(ngModel)]="carYear">
-<button class="btn btn-primary" (click)="addCar()">Добавить</button>
-
+<h3>Форма добавления</h3>
+<hr>
+<app-addcar (onAddCar)="updateCarList($event)"></app-addcar>
 <hr>
 
-<app-car *ngFor="let car of cars" [carItem]="car"></app-car>
+<div class="list-group">
+  <app-car class="list-group-item" *ngFor="let car of cars" [carItem]="car"></app-car>
+</div>
+
