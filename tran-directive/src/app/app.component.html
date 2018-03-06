@@ -1,6 +1,21 @@
 <div class="container">
   <div class="col-xs-8 col-xs-offset-2">
-    <h3 appBackground>{{headerText}}</h3>
+    <h3 appBackground="red" [defaultColor]="'blue'">{{headerText}}</h3>
+
+    <ul class="list-group">
+      <li *ngFor="let item of items" (click)="onClick(item)" class="list-group-item">
+        {{item}}
+      </li>
+    </ul>
+
+    <div [ngSwitch]="current">
+      <p *ngSwitchCase="1">1</p>
+      <p *ngSwitchCase="2">2</p>
+      <p *ngSwitchCase="3">3</p>
+      <p *ngSwitchCase="4">4</p>
+      <p *ngSwitchDefault>Default</p>
+    </div>
+
   </div>
 </div>
 
