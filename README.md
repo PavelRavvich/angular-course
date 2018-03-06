@@ -1,6 +1,6 @@
 # Angular 4
 
-##Often crashing dependencies. For fix:
+## Often crashing dependencies. For fix:
 
 `npm install core-js`
 
@@ -10,14 +10,14 @@
 
 `sudo npm i bootstrap --save`
 
-##Project generation 
+## Project generation 
 
-ng new p-name
+`ng new p-name`
 
-##Component generation
+## Component generation
 
-ng g c component-name
+`ng g c component-name`
 
-##Directive generation
+## Directive generation
 
-ng g d component-name
+`ng g d component-name`
