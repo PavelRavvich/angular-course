@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('directive-train App', () => {
+describe('tran-directive App', () => {
   let page: AppPage;
 
   beforeEach(() => {
