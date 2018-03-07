@@ -2,11 +2,13 @@
 
 ## Often crashing dependencies. For fix:
 
+`ng new project-name`
+
+`npm install rxjs`
+
 `npm install core-js`
 
 `npm i --save jquery popper.js`
-
-`npm install rxjs`
 
 `sudo npm i bootstrap --save`
 
