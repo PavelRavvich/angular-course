@@ -21,3 +21,7 @@
 ## Directive generation
 
 `ng g d component-name`
+
+## Directive pipe
+
+`ng g p pipe-name`
