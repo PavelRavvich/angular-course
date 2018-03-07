@@ -1,2 +1,6 @@
-<p>Hello</p>
-
+<div class="col-xs-8 col-xs-offset">
+<app-add-car></app-add-car>
+  <div class="list-group">
+    <app-car *ngFor="let car of cars" [car]="car"></app-car>
+  </div>
+</div>
