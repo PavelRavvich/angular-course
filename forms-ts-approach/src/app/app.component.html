@@ -1,0 +1,63 @@
+<div class="col-xs-8 col-xs-offset-2">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div formGroupName="user">
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          class="form-control"
+          formControlName="email"
+          [ngClass]="{'is-invalid' : form.get('user.email').invalid && form.get('user.email').touched}"
+        >
+        <p
+          *ngIf="form.get('user.email').invalid && form.get('user.email').touched"
+        >
+          <span *ngIf="form.get('user.email').errors['emailIsUsed']">Такой email уже существует</span>
+          <span *ngIf="form.get('user.email').errors['email']">Это не email!</span>
+        </p>
+
+      </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+          [ngClass]="{'is-invalid' : form.get('user.password').invalid && form.get('user.password').touched}"
+        >
+        <p
+          *ngIf="form.get('user.password').invalid && form.get('user.password').touched"
+        >
+          <span *ngIf="form.get('user.password').errors['required']">Пароль не может быть пустым!</span>
+          <span *ngIf="form.get('user.password').errors['lengthError']">Пароль не может быть меньше 4 символов</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Выберете страну</label>
+      <select class="form-control" formControlName="country">
+        <option value="ru">Россия</option>
+        <option value="by">Белорусия</option>
+        <option value="ua">Украина</option>
+      </select>
+    </div>
+
+    <div class="radio" *ngFor="let ans of answers">
+      <label>
+        <input type="radio"
+               name="answer"
+               formControlName="answer"
+               [value]="ans.type"
+        > {{ans.text}}
+      </label>
+    </div>
+
+    <button
+      class="btn btn-success"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Сохранить</button>
+  </form>
+</div>
+
