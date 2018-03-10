@@ -4,9 +4,9 @@
 
 `ng new project-name`
 
-`npm install rxjs`
-
 `npm install core-js`
+
+`npm install rxjs`
 
 `npm i --save jquery popper.js`
 
