@@ -1,9 +1,27 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode-test" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "title": {
+    "value": "Менеджер машин"
+  },
+  "cars": [
+    {
+      "name": "Bantly",
+      "color": "red",
+      "id": 8
+    },
+    {
+      "name": "BMW",
+      "color": "orange",
+      "id": 9
+    },
+    {
+      "name": "Bantly",
+      "color": "yellow",
+      "id": 10
+    },
+    {
+      "name": "Sola",
+      "color": "green",
+      "id": 11
+    }
+  ]
 }
