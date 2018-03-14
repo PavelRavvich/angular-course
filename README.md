@@ -6,11 +6,17 @@
 
 `npm install core-js`
 
+`npm i ajv@^6.0.0`
+
 `npm install rxjs`
 
 `npm i --save jquery popper.js`
 
-`sudo npm i bootstrap --save`
+`npm i bootstrap --save`
+
+If problem with module routing used prev cli version:
+
+`sudo npm install -g @angular/cli@1.6.5`
 
 ## Project generation 
 
