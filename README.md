@@ -1,8 +1,22 @@
 # Angular 4
 
-## Often crashing dependencies. For fix:
+## Init project
 
 `ng new project-name`
+
+Args: 
+
+`--skip-install` - does not install dependency
+
+`--prefix [prefix]` - short app name
+
+`--style scss` - determinates scss preprocessor
+
+For example:
+
+`ng new my-app-name --skip-install --prefix my-prefix --style scss`
+
+## Often crashing dependencies. For fix:
 
 `npm install core-js`
 
