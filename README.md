@@ -16,7 +16,31 @@ For example:
 
 `ng new my-app-name --skip-install --prefix my-prefix --style scss`
 
+For crossplatform development:
+
+`npm i --save-dev concurrently`
+
+Into `package.json` add:
+
+`"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build --prod",
+  "test": "ng test",
+  "lint": "ng lint",
+  "e2e": "ng e2e",
+  "server": "json-server --watch db.json --port 3000",
+  "dev": "concurrently --kill-others npm \"un start\" && \"npm run server\""
+}`
+
 ## Often crashing dependencies. For fix:
+
+`npm install -g nodemailer`
+
+Exchange deprecadat uuid:
+
+`npm uninstall --save node-uuid`
+`npm install --save uuid`
 
 `npm install core-js`
 
