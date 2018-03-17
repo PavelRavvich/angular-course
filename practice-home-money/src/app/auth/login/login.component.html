@@ -49,7 +49,7 @@
       <span *ngIf="form.get('password')['errors']['required']">
         Пароль не может быть пустым.
       </span>
-      <span *ngIf="form.get('password')['errors']['minlength']">
+      <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
         Пароль должен быть не меньше
         {{ form.get('password')['errors']['minlength']['requiredLength'] }}.
         <br>
@@ -69,7 +69,7 @@
   <div class="form-group">
     <p class="text-muted text-xs-center">
       Нет аккаунта?
-      <a href="#">Зарегистрироваться!</a>
+      <a [routerLink]="'/registration'">Зарегистрироваться!</a>
     </p>
   </div>
 </form>
