@@ -7,6 +7,14 @@
       "name": "Администратор"
     }
   ],
+  "lastest": {
+    "base": "RUB",
+    "date": "2018-03-02",
+    "rates": {
+      "EUR": 0.015343,
+      "USD": 0.019324
+    }
+  },
   "bill": {
     "value": 100000,
     "currency": "RUB"
