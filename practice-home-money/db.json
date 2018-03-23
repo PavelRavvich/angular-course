@@ -16,7 +16,7 @@
     }
   },
   "bill": {
-    "value": 95800,
+    "value": 94600,
     "currency": "RUB"
   },
   "categories": [
@@ -65,7 +65,7 @@
       "type": "outcome",
       "amount": 2470,
       "category": 2,
-      "date": "17.06.2017 14:00:58",
+      "date": "17.03.2018 14:00:58",
       "id": 4,
       "description": "Закупка на неделю"
     },
@@ -73,9 +73,17 @@
       "type": "outcome",
       "amount": 4000,
       "category": 3,
-      "date": "10.06.2017 14:01:58",
+      "date": "10.03.2018 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 1200,
+      "category": 2,
+      "date": "22.03.2018 23:25:17",
+      "description": "test",
+      "id": 6
     }
   ]
 }

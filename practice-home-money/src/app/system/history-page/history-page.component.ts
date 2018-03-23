@@ -1,10 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
+import * as moment from 'moment';
+
 import {CategoriesService} from '../shared/services/categories.service';
 import {EventService} from '../shared/services/event.service';
-import {Observable} from 'rxjs/Observable';
 import {Category} from '../shared/models/category.model';
 import {PREvent} from '../shared/models/event.model';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'pr-history-page',
@@ -17,10 +19,13 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   isLoaded = false;
   categories: Category[] = [];
   events: PREvent[] = [];
+  filteredEvents: PREvent[] = [];
 
   chartData = [];
 
-  constructor(private categoryService: CategoriesService, private eventService: EventService) { }
+  isFilterVisible = false;
+
+  constructor(private categoryService: CategoriesService, private eventService: EventService) {}
 
   ngOnInit() {
     this.subscription = Observable.combineLatest(
@@ -30,6 +35,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.categories = data[0];
       this.events = data[1];
       this.calcChartData();
+      this.setOriginalEvents();
       this.isLoaded = true;
     });
   }
@@ -37,7 +43,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   calcChartData(): void {
     this.chartData = [];
     this.categories.forEach((category) => {
-      const catEvents = this.events.filter((event) => event.category === category.id && event.type === 'outcome');
+      const catEvents = this.filteredEvents.filter((event) => event.category === category.id && event.type === 'outcome');
       this.chartData.push({
         name: category.name,
         value: catEvents.reduce((total, e) => {
@@ -46,6 +52,45 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         }, 0)
       });
     });
+  }
+
+  openFilter() {
+    this.toggleFilterVisibility(true);
+  }
+
+  private toggleFilterVisibility(isFilterVisible: boolean) {
+    this.isFilterVisible = isFilterVisible;
+  }
+
+  onFilterApply(filterData) {
+    this.isFilterVisible = false;
+    this.setOriginalEvents();
+
+    const startPeriod = moment().startOf(filterData.period).startOf('d');
+    const endPeriod = moment().endOf(filterData.period).endOf('d');
+
+    this.filteredEvents = this.filteredEvents
+      .filter((event) => {
+        return filterData.types.indexOf(event.type) !== -1;
+      })
+      .filter((event) => {
+        return filterData.categories.indexOf(event.category.toString()) !== -1;
+      })
+      .filter((event) => {
+        const momentDate = moment(event.date, 'DD.MM.YYYY HH:mm:ss');
+        return momentDate.isBetween(startPeriod, endPeriod);
+      });
+    this.calcChartData();
+  }
+
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
+    this.setOriginalEvents();
+    this.calcChartData();
+  }
+
+  private setOriginalEvents() {
+    this.filteredEvents = this.events.slice();
   }
 
   ngOnDestroy() {

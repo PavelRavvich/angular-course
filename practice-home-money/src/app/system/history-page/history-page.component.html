@@ -1,7 +1,12 @@
 <div class="title-block">
-  <h3 class="title">
+  <h3 class="title pull-left">
     Страница истории <span class="sparkline bar"></span>
   </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline" (click)="openFilter()">
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="!isLoaded" class="text-center">Loading...</div>
@@ -10,9 +15,15 @@
 
   <pr-history-chart [data]="chartData"></pr-history-chart>
 
-  <pr-history-event [categories]="categories" [events]="events"></pr-history-event>
+  <pr-history-event [categories]="categories" [events]="filteredEvents"></pr-history-event>
 
-  <pr-history-filter></pr-history-filter>
+  <div *ngIf="isFilterVisible">
+    <pr-history-filter
+      (onFilterApply)="onFilterApply($event)"
+      (onFilterCancel)="onFilterCancel()"
+      [categories]="categories"
+    ></pr-history-filter>
+  </div>
 
 </div>
 

@@ -45,7 +45,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
 
   onSubmit(form: NgForm) {
     const {amount, description, category, type} = form.value;
-    const event = new PREvent(type, amount, +category, moment().format('DD.MM.YY HH:mm:ss'), description);
+    const event = new PREvent(type, amount, +category, moment().format('DD.MM.YYYY HH:mm:ss'), description);
 
     this.subscription1 = this.billService.getBill()
       .subscribe((bill: Bill) => {
