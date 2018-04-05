@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { ParentComponent } from './two-way-comps-binding-with-listening-data-in-parent/parent/parent.component';
 import { ChildComponent } from './two-way-comps-binding-with-listening-data-in-parent/child/child.component';
+import { Child1Component } from './one-way-comps-binding/child1/child1.component';
+import { Parent1Component } from './one-way-comps-binding/parent1/parent1.component';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { ChildComponent } from './two-way-comps-binding-with-listening-data-in-p
     AppComponent,
     ParentComponent,
     ChildComponent,
+    Child1Component,
+    Parent1Component,
     
   ],
   imports: [
